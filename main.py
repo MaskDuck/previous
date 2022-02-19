@@ -28,6 +28,8 @@ async def on_command_error(ctx, error):
     elif isinstance(error, errors.MissingRequiredArgument):
         await ctx.send("You're missing a required argument.")
     # kinda annoying and useless error.
+    elif isinstance(error, errors.NotOwner):
+        await ctx.send("You are not my owner.")
     elif isinstance(error, nextcord.NotFound) and "Unknown interaction" in str(error):
         return
     else:
